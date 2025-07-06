@@ -43,16 +43,16 @@ def hamster_converter(text):
     # 배고픔 표현
  
     result = re.sub(r'배고파요?', '배고파쮸우우...', result)
-    result = re.sub(r'배고프다', '배고파쮸우우...', result)
+    result = re.sub(r'배고프다\b', '배고파쮸우우...', result)
     
 
     # 슬픔 표현  
     result = re.sub(r'슬퍼', '슬퍼쮸우우...', result)
-    result = re.sub(r'슬프다', '슬퍼쮸우우...', result)
+    result = re.sub(r'슬프다\b', '슬퍼쮸우우...', result)
 
     # 심심함 표현
-    result = re.sub(r'심심해', '심심하다쮸우우...', result)
-    result = re.sub(r'심심하다', '심심해쮸우우...', result)
+    result = re.sub(r'심심해', '심심해쮸우우...', result)
+    result = re.sub(r'심심하다\b', '심심하다쮸우우...', result)
 
     result = re.sub(r'냐(멍|개|옹|왈)', '냐쮸', result)
     result = re.sub(r'다(옹|멍|개|왈)', '다쮸', result)
@@ -124,7 +124,7 @@ def hamster_converter(text):
     # 10. 문장 끝에 "찍" 추가 (한국어가 포함된 경우만)
     if re.search(r'[가-힣]', result):
         # 문장 끝 처리 - 문장부호로 끝나는 경우
-        result = re.sub(r'([가-힣])(?<![찍쮸찌])(\s*[.!?~\\,;]+)(?![가-힣])', r'\1찍\2', result)
+        result = re.sub(r'([가-힣])(?<![찍쮸찌])(\s*[.!?~\\;]+)(?![가-힣])', r'\1찍\2', result)
 
         
         # 이모티콘으로 끝나는 경우

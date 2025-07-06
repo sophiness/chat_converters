@@ -2,11 +2,12 @@ import re
 import csv
 import json
 
-import rule_based_converter.converter.converter_schemas as schemas
-from rule_based_converter.converter.dog import dog_converter
-from rule_based_converter.converter.cat import cat_converter
-from rule_based_converter.converter.hamster import hamster_converter
-from rule_based_converter.converter.raccoon import raccoon_converter
+import converter_schemas as schemas
+from dog import dog_converter
+from cat import cat_converter
+from hamster import hamster_converter
+from raccoon import raccoon_converter
+from monkey import monkey_converter
 
 
 
@@ -179,4 +180,4 @@ if __name__ == "__main__":
 #     #process_csv_simple('strip_data.csv',hamster_converter, 'hamster_converted.tsv')
 #     #process_txt_simple('sns_corpus.txt','hamster_converter', 'hamster_converted.csv')
     # print(hamster_converter('안뇽여러분😎 나는 호두야'))
-    process_jsonl_simple('data.jsonl', raccoon_converter, 'rac_converted.jsonl', text_field='content')
+    process_jsonl_simple('data.jsonl', monkey_converter, 'monkey_converted.jsonl', text_field='content')
